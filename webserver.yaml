@@ -30,6 +30,7 @@
      name: nginx 
      state: started 
      enabled: yes 
+     become: true
 
 # http://docs.ansible.com/ansible/latest/modules/template_module.html
   - name: Send a custom index.html to the server
