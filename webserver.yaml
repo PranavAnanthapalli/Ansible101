@@ -19,7 +19,6 @@
   - name: Install a list of packages - Redhat
     dnf: name={{item}} state=present
     with_items:
-       - epel-release
        - nginx
        - vim
     become: true
