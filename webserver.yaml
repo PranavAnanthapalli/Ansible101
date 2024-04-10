@@ -16,12 +16,22 @@
     become: true
 
 # http://docs.ansible.com/ansible/latest/modules/yum_module.html
-  - name: Install a list of packages - Redhat
-    dnf: name={{item}} state=present
-    with_items:
-       - epel-release
-       - nginx
-       - vim
+  # - name: Install a list of packages - Redhat
+  #   dnf: name={{item}} state=present
+  #   with_items:
+  #      - epel-release
+  #      - nginx
+  #      - vim
+  
+# Install nginx and other packages from the epel repository
+- name: Install nginx and other packages
+  dnf:
+    name: "{{ item }}"
+    state: present
+  become: true
+  with_items:
+    - nginx
+    - vim  
 
 # http://docs.ansible.com/ansible/latest/modules/service_module.html
   - name: Ensure nginx is set to start on boot
