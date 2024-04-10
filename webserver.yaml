@@ -13,7 +13,7 @@
     dnf: 
      name: epel-release 
      state: present
-     become: true
+    become: true
 
 # http://docs.ansible.com/ansible/latest/modules/yum_module.html
   - name: Install a list of packages - Redhat
