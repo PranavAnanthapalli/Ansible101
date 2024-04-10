@@ -24,14 +24,14 @@
   #      - vim
   
 # Install nginx and other packages from the epel repository
-- name: Install nginx and other packages
-  dnf:
-    name: "{{ item }}"
-    state: present
-  become: true
-  with_items:
-    - nginx
-    - vim  
+  - name: Install nginx and other packages
+    dnf:
+      name: "{{ item }}"
+      state: present
+    become: true
+    with_items:
+      - nginx
+      - vim  
 
 # http://docs.ansible.com/ansible/latest/modules/service_module.html
   - name: Ensure nginx is set to start on boot
