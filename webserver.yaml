@@ -40,3 +40,4 @@
      owner: nginx
      group: nginx
      backup: yes
+    become: true
