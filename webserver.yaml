@@ -9,29 +9,20 @@
 #     name: "{{ servername }}"
 
 # We need the Epel repository to install nginx
-  - name: Install epel release for nginx
-    dnf: 
-     name: epel-release 
-     state: present
-    become: true
+  # - name: Install epel release for nginx
+  #   dnf: 
+  #    name: epel-release 
+  #    state: present
+  #   become: true
 
 # http://docs.ansible.com/ansible/latest/modules/yum_module.html
-  # - name: Install a list of packages - Redhat
-  #   dnf: name={{item}} state=present
-  #   with_items:
-  #      - epel-release
-  #      - nginx
-  #      - vim
-  
-# Install nginx and other packages from the epel repository
-  - name: Install nginx and other packages
-    dnf:
-      name: "{{ item }}"
-      state: present
-    become: true
+  - name: Install a list of packages - Redhat
+    dnf: name={{item}} state=present
     with_items:
-      - nginx
-      - vim  
+       - epel-release
+       - nginx
+       - vim
+  
 
 # http://docs.ansible.com/ansible/latest/modules/service_module.html
   - name: Ensure nginx is set to start on boot
